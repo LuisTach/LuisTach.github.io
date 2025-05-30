@@ -8,7 +8,10 @@
 </head>
 <body>
 
-  <h1>Recursos Educativos</h1>
+  <h1>Recursos</h1>
+
+  <!-- Barra de búsqueda -->
+  <input type="text" id="searchRecursos" placeholder="Buscar recursos..." style="width: 100%; padding: 10px; margin-bottom: 20px; font-size: 1rem;">
 
   <div class="recurso">
     <a href="https://drive.google.com/file/d/1IP37tQXtUwJrkOjQm4P4_7aU1PupDbcH/view?usp=sharing" target="_blank">
@@ -20,15 +23,39 @@
     </a>
   </div>
 
-<div class="recurso">
-  <a href="https://rea.ceibal.edu.uy/elp/el-batllismo-1903-1915/inicio" target="_blank">
-    <img src="img/rea.png" alt="rea img">
-    <div class="info">
-      <h3>REA Batllismo</h3>
-      <p>Recursos educativos abiertos de Uruguay por Plan Ceibal.</p>
-    </div>
-  </a>
-</div>
 
+  <div class="recurso">
+    <a href="https://rea.ceibal.edu.uy/elp/el-batllismo-1903-1915/inicio" target="_blank">
+      <img src="img/rea.png" alt="rea img" />
+      <div class="info">
+        <h3>REA Batllismo</h3>
+        <p>Recursos educativos abiertos de Uruguay por Plan Ceibal.</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Puedes añadir más recursos aquí -->
+
+<script>
+  const searchRecursosInput = document.getElementById('searchRecursos');
+  const recursos = document.querySelectorAll('.recurso');
+
+  searchRecursosInput.addEventListener('input', () => {
+    const filter = searchRecursosInput.value.toLowerCase();
+
+    recursos.forEach(recurso => {
+      // Buscamos h2 o h3, lo que exista
+      const tituloH2 = recurso.querySelector('h2');
+      const tituloH3 = recurso.querySelector('h3');
+      const titulo = (tituloH2 ? tituloH2.textContent : (tituloH3 ? tituloH3.textContent : '')).toLowerCase();
+
+      if (titulo.includes(filter)) {
+        recurso.style.display = '';
+      } else {
+        recurso.style.display = 'none';
+      }
+    });
+  });
+</script>
 </body>
 </html>
