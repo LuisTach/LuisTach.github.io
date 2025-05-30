@@ -10,6 +10,9 @@
 
   <h1>Videos</h1>
 
+  <!-- Barra de búsqueda -->
+  <input type="text" id="searchVideos" placeholder="Buscar videos..." style="width: 100%; padding: 10px; margin-bottom: 20px; font-size: 1rem;">
+
   <div class="video-item delay-0">
     <iframe src="https://www.youtube.com/embed/kuh56HbjCkM?si=89bQcHikY4YlS4sc" allowfullscreen></iframe>
     <div class="description">Jose Batlle y ordoñez completo</div>
@@ -17,8 +20,26 @@
 
   <div class="video-item delay-1">
     <iframe src="https://www.youtube.com/embed/HQ40ksM2Vc0?si=MVDkFPs1X7opZzk8" allowfullscreen></iframe>
-    <div class="description">Música para estudiar</div>
+    <div class="description">Musica para estudiar</div>
   </div>
+
+  <script>
+    const searchVideosInput = document.getElementById('searchVideos');
+    const videoItems = document.querySelectorAll('.video-item');
+
+    searchVideosInput.addEventListener('input', () => {
+      const filter = searchVideosInput.value.toLowerCase();
+
+      videoItems.forEach(video => {
+        const description = video.querySelector('.description').textContent.toLowerCase();
+        if (description.includes(filter)) {
+          video.style.display = '';
+        } else {
+          video.style.display = 'none';
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
