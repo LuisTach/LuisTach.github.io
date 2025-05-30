@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Página Principal</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <style>
+    .botones {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bienvenido a Estudio Sencillo</h1>
+  <p>Desde acá podés acceder a los recursos y videos.</p>
+
+  <div class="botones">
+    <button onclick="abrirVideos()">Ver Videos</button>
+    <button onclick="abrirRecursos()">Ver Recursos</button>
+  </div>
+
+  <script>
+    function abrirVideos() {
+      window.open('videos.html', '_blank');
+    }
+
+    function abrirRecursos() {
+      window.open('recursos.html', '_blank');
+    }
+  </script>
+
+</body>
+</html>
